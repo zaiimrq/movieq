@@ -1,1 +1,0 @@
-import{_ as o,c as t,a,o as n}from"./index-CsCpiN52.js";const r={};function s(c,e){return n(),t("div",null,e[0]||(e[0]=[a("p",null,"Halaman About",-1)]))}const u=o(r,[["render",s]]);export{u as default};
