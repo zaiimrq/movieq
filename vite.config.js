@@ -7,7 +7,7 @@ import tailwindcss from "@tailwindcss/vite"
 // https://vite.dev/config/
 export default defineConfig({
   // eslint-disable-next-line no-undef
-  base: process.env.NODE_ENV === "preview" ? "/movieq/" : "/",
+  base: process.env.NODE_ENV === "production" ? "/movieq/" : "/",
   plugins: [
     vue(),
     tailwindcss()
