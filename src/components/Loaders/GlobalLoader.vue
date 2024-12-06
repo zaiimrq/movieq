@@ -1,80 +1,163 @@
 <template>
   <div class="loader">
-    <span></span>
+    <div class="circle">
+      <div class="dot"></div>
+      <div class="outline"></div>
+    </div>
+    <div class="circle">
+      <div class="dot"></div>
+      <div class="outline"></div>
+    </div>
+    <div class="circle">
+      <div class="dot"></div>
+      <div class="outline"></div>
+    </div>
+    <div class="circle">
+      <div class="dot"></div>
+      <div class="outline"></div>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .loader {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  background: transparent;
-  border-radius: 50%;
-  box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.55);
-  border: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* --color: hsl(348, 78%, 53%); */
+  --color: red;
+  --animation: 2s ease-in-out infinite;
+}
+
+.loader .circle {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-}
-
-.loader::before {
-  content: '';
-  position: absolute;
-  inset: 20px;
-  background: transparent;
-  border: 1px dashed#444;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: solid 2px var(--color);
   border-radius: 50%;
-  box-shadow:
-    inset -5px -5px 25px rgba(0, 0, 0, 0.25),
-    inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+  margin: 0 10px;
+  background-color: transparent;
+  animation: circle-keys var(--animation);
 }
 
-.loader::after {
-  content: '';
+.loader .circle .dot {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  border: 1px dashed#444;
-  box-shadow:
-    inset -5px -5px 25px rgba(0, 0, 0, 0.25),
-    inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+  background-color: var(--color);
+  animation: dot-keys var(--animation);
 }
 
-.loader span {
+.loader .circle .outline {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 50%;
-  height: 100%;
-  background: transparent;
-  transform-origin: top left;
-  animation: radar81 2s linear infinite;
-  border-top: 1px dashed #fff;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation: outline-keys var(--animation);
 }
 
-.loader span::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: red;
-  transform-origin: top left;
-  transform: rotate(-55deg);
-  filter: blur(30px) drop-shadow(20px 20px 20px red);
+.circle:nth-child(2) {
+  animation-delay: 0.3s;
 }
 
-@keyframes radar81 {
+.circle:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.circle:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.circle:nth-child(5) {
+  animation-delay: 1.2s;
+}
+
+.circle:nth-child(2) .dot {
+  animation-delay: 0.3s;
+}
+
+.circle:nth-child(3) .dot {
+  animation-delay: 0.6s;
+}
+
+.circle:nth-child(4) .dot {
+  animation-delay: 0.9s;
+}
+
+.circle:nth-child(5) .dot {
+  animation-delay: 1.2s;
+}
+
+.circle:nth-child(1) .outline {
+  animation-delay: 0.9s;
+}
+
+.circle:nth-child(2) .outline {
+  animation-delay: 1.2s;
+}
+
+.circle:nth-child(3) .outline {
+  animation-delay: 1.5s;
+}
+
+.circle:nth-child(4) .outline {
+  animation-delay: 1.8s;
+}
+
+.circle:nth-child(5) .outline {
+  animation-delay: 2.1s;
+}
+
+@keyframes circle-keys {
   0% {
-    transform: rotate(0deg);
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
   }
 
   100% {
-    transform: rotate(360deg);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes dot-keys {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes outline-keys {
+  0% {
+    transform: scale(0);
+    outline: solid 20px var(--color);
+    outline-offset: 0;
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    outline: solid 0 transparent;
+    outline-offset: 20px;
+    opacity: 0;
   }
 }
 </style>

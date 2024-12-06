@@ -1,24 +1,25 @@
 <template>
-  <main class="@container relative pb-32" v-bind:class="{ 'overflow-hidden max-h-dvh': loading }">
+  <main class="@container relative pb-20" v-bind:class="{ 'overflow-hidden max-h-dvh': loading }">
     <RouterView />
-    <!-- <div v-if="loading" class="absolute inset-0 grid bg-black place-content-center z-9999">
+    <div v-if="loading" class="absolute inset-0 grid bg-black place-content-center z-9999">
       <GlobalLoader />
-    </div> -->
+    </div>
   </main>
-  <FooterSection/>
+  <template v-if="!loading">
+    <FooterSection />
+  </template>
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue'
 import GlobalLoader from './components/Loaders/GlobalLoader.vue'
-import FooterSection from './components/Home/FooterSection.vue';
+import FooterSection from './components/Home/FooterSection.vue'
 
 const loading = ref(true)
 
-onMounted(() => {
-
+onMounted(async () => {
   setTimeout(() => {
     loading.value = false
-  }, 2500)
+  }, 5000)
 })
 </script>

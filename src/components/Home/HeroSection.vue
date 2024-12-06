@@ -29,10 +29,10 @@ import ExploreButton from '../Buttons/ExploreButton.vue'
         data-aos-delay="3000"
         class="tracking-wider select-none text-7xl sm:text-8xl lg:text-9xl"
       >
-        Movie Q
+        MovieQ
       </p>
       <p
-        data-aos="fade-up"
+        data-aos="fade-up mt-3"
         data-aos-delay="4000"
         class="text-3xl select-none sm:text-4xl lg:text-5xl"
       >
@@ -47,11 +47,3 @@ import ExploreButton from '../Buttons/ExploreButton.vue'
     </div>
   </div>
 </template>
-
-<style scoped>
-/* @media screen and (max-width: 1000px) {
-  iframe {
-    clip-path: inset(0 0 10% 0);
-  }
-} */
-</style>
