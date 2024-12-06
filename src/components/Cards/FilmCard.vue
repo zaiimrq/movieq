@@ -1,17 +1,31 @@
 <template>
-  <div class="flip-card">
+  <div data-aos="fade" class="cursor-pointer flip-card">
     <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <p class="title">Venom 2024</p>
-        <p>Hover Me</p>
+      <div class="flip-card-front" :style="{ backgroundImage: `url(${tmdbImageUrl + item.poster_path})` }">
+      <span class="py-3 rounded-tr-xl rounded-tl-xl bg-black/80" >
+        <p class="font-bold text-gray-100" >{{ item.title }}</p>
+        <p class="font-medium text-red-600" >{{ new Date(item.release_date).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
+      </span>
       </div>
-      <div class="flip-card-back">
-        <p class="title">Test</p>
-        <p>Leave Me</p>
+      <div class="flip-card-back" :style="{ backgroundImage: `url(${tmdbImageUrl + item.poster_path})` }">
+        <span class="p-3 bg-black rounded-tr-xl rounded-tl-xl" >
+        <p class="text-sm text-gray-100 line-clamp-3" > {{ item.overview }}</p>
+      </span>
       </div>
     </div>
   </div>
 </template>
+
+<script setup >
+const tmdbImageUrl = "https://image.tmdb.org/t/p/w200"
+
+defineProps({
+  item: {
+    type: Object,
+    required: true
+  }
+})
+</script>
 
 <style scoped>
 .flip-card {
@@ -22,13 +36,6 @@
   height: 254px;
   perspective: 1000px;
   font-family: sans-serif;
-}
-
-.title {
-  font-size: 1.5em;
-  font-weight: 900;
-  text-align: center;
-  margin: 0;
 }
 
 .flip-card-inner {
@@ -50,13 +57,15 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border: 1px solid red;
   border-radius: 1rem;
+  background-size: cover;
+  background-position: center;
 }
 
 .flip-card-front {

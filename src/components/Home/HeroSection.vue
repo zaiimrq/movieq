@@ -5,14 +5,16 @@ import QuietPlace from '@/assets/trailers/quiet-place.mp4'
 import Gladiator from '@/assets/trailers/gladiator.mp4'
 import Venom from '@/assets/trailers/venom.mp4'
 import ExploreButton from '../Buttons/ExploreButton.vue'
+
 </script>
 
 <template>
   <div class="relative px-3 min-h-dvh">
     <!-- cover of spline watermark -->
-    <div class="absolute bottom-5 p-5 blur bg-red-700 rounded w-35 right-7.5"></div>
+    <div class="absolute bottom-5 p-5 blur bg-red-700 roulnded w-35 right-7.5"></div>
     <!-- <TimeText /> -->
     <iframe
+      v-once
       class="w-full h-full min-h-dvh -z-10"
       src="https://my.spline.design/backlightbgeffect-f1da79cfdc2f719048f3d022c12c52ee/"
       frameborder="0"
@@ -39,9 +41,9 @@ import ExploreButton from '../Buttons/ExploreButton.vue'
       <ExploreButton />
     </div>
     <div class="absolute bottom-0 flex-col justify-center hidden h-full gap-10 right-10 md:flex">
-      <TrailerVideo id="quiet-place" :src="QuietPlace" />
-      <TrailerVideo id="gladiator" :src="Gladiator" />
-      <TrailerVideo id="venom" :src="Venom" />
+      <TrailerVideo key="video-1" id="quiet-place" :src="QuietPlace" />
+      <TrailerVideo key="video-2" id="gladiator" :src="Gladiator" />
+      <TrailerVideo key="video-3" id="venom" :src="Venom" />
     </div>
   </div>
 </template>

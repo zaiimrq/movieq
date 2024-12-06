@@ -5,7 +5,7 @@
         id="svgGroup"
         stroke-linecap="round"
         fill-rule="evenodd"
-        font-size="6pt"
+        font-size="5pt"
         stroke="#c10007"
         stroke-width="2"
         fill="#000"
