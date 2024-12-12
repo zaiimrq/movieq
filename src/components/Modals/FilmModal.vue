@@ -27,6 +27,10 @@
           <GlobalLoader />
         </template>
         <template v-else>
+        {{ console.log(id) }}
+          <template v-if="audios[id] !== undefined">
+            <audio :src="audios[id].src" autoplay loop></audio>
+          </template>
           <h2 class="mb-5 text-3xl font-bold">
             {{ item.title }} ({{
               new Date(item.release_date).toLocaleDateString('id-ID', { year: 'numeric' })
@@ -66,9 +70,13 @@
 import { onMounted, ref } from 'vue'
 import VoteAverage from '../Cards/VoteAverage.vue'
 import GlobalLoader from '../Loaders/GlobalLoader.vue'
+import audios from '@/assets/audios'
+// import VenomAudio from "@/assets/trailers/venom-audio.mp3"
+// const VenomAudio = ref('/venom-audio.mp3') // Jalur langsung ke public folder
 
 const props = defineProps({
   id: {},
+  index: {},
 })
 const emit = defineEmits(['close'])
 const close = () => emit('close')

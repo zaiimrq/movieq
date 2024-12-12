@@ -1,5 +1,5 @@
 <template>
-  <div data-aos="fade" class="cursor-pointer flip-card">
+  <div data-aos="fade" data-aos-duration="700" class="cursor-pointer flip-card">
     <div class="flip-card-inner">
       <div class="flip-card-front" :style="{ backgroundImage: `url(${tmdbImageUrl + item.poster_path})` }">
       <span class="py-3 rounded-tr-xl rounded-tl-xl bg-black/80" >
@@ -7,7 +7,9 @@
         <p class="font-medium text-red-600" >{{ new Date(item.release_date).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
       </span>
       </div>
-      <div class="flip-card-back" :style="{ backgroundImage: `url(${tmdbImageUrl + item.poster_path})` }">
+      <div
+      @click="openModal"
+       class="flip-card-back" :style="{ backgroundImage: `url(${tmdbImageUrl + item.poster_path})` }">
         <span class="p-3 bg-black rounded-tr-xl rounded-tl-xl" >
         <p class="text-sm text-gray-100 line-clamp-3" > {{ item.overview }}</p>
       </span>
@@ -25,6 +27,10 @@ defineProps({
     required: true
   }
 })
+
+const emit = defineEmits(["showModal"])
+
+const openModal = () => emit("showModal")
 </script>
 
 <style scoped>

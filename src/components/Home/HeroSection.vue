@@ -12,7 +12,6 @@ import ExploreButton from '../Buttons/ExploreButton.vue'
   <div class="relative px-3 min-h-dvh">
     <!-- cover of spline watermark -->
     <div class="absolute bottom-5 p-5 blur bg-red-700 roulnded w-35 right-7.5"></div>
-    <!-- <TimeText /> -->
     <iframe
       v-once
       class="w-full h-full min-h-dvh -z-10"

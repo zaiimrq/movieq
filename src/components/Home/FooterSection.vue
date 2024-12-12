@@ -1,5 +1,5 @@
 <template>
-  <footer class="@container flex justify-around pb-10">
+  <footer class="@container flex justify-between pb-10 px-10">
     <span class="text-sm">Copyright &copy; 2024 ~ All rights Reserved</span>
     <span class="text-sm">
       <p>
